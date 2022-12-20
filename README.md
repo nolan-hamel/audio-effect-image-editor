@@ -1,70 +1,70 @@
-# Getting Started with Create React App
+# Final Project - Audio Effect Image Editor
+Author: Nolan Hamel 
+Date: 12/9/2022 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+The project can be access by going to: https://nhamel-cpsc-6040-final.surge.sh
+Or you can run it yourself after completing the following instructions.
 
-## Available Scripts
+# Prerequisites
+This project requires Node.js (https://nodejs.org) which includes npm
 
-In the project directory, you can run:
+To install all the dependencies, run `npm install`
 
-### `npm start`
+# Running the app from source
+Run the command `npm start`, and the app will run at http://localhost:3000
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+# Working the app
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+The app contains the following effects and parameters:
 
-### `npm test`
+# ECHO
+The echo effect will add echos to the input image.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Parameters:
 
-### `npm run build`
+### Delay Time (Pixels)
+Delay time controls how "large" the echo is. 
+In terms of audio, delay time refers to how long it takes until you hear the original sound again.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Feedback Gain
+Feedback Gain controls how many echos are in the final image.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Feed Forward Gain
+Feed Forward Gain controls the factor at which the echos are mixed into the final image.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+___
 
-### `npm run eject`
+# DISTORTION
+The distortion effect clamps and amplifys the input image. 
+It acts on each channel independently rather than on pixel values, so it can lead to some interesting results.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Parameters:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Clipping Level
+Clipping Level controls how bright of a channel value it will clip. 
+For example, a Clipping Level of 0.4 will clip the top 40% of possible channel values (255 to 153).
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### Make-up Gain
+Make-up Gain controls how much the affected values are brightened. 
+For example, a Make-up Gain of 1 will brighten all clipped values to 255.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+___
 
-## Learn More
+# CHORUS
+The Chorus effect is like an echo with a Low Frequency Oscillator (LFO) affecting the delay time.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Parameters:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Chorus Gain
+Chorus Gain controls how much the chorus is mixed with the original image. 
+For example, a Chorus Gain of 1 will only be the affected image, and a value of 0.5 will average the original image and the affected image.
 
-### Code Splitting
+### Delay Time (Pixels)
+Delay time controls how "large" the echo is. 
+In terms of audio, delay time refers to how long it takes until you hear the original sound again.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### Sweep Width (Pixels)
+Sweep Width controls how large the amplitude of the LFO is.
 
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### Frequency
+Frequency controls how many waves there are in the output image.
